@@ -1,10 +1,10 @@
 import requests
 
-url = 'https://www.mytischtennis.de/public/home?fromlogin=1&logout=true'
-myobj = {'userNameB': 'myusername',
-    'userPassWordB': '***'}
+getCookieUrl = 'https://www.mytischtennis.de/public/home?fromlogin=1&logout=true'
+myCredentials = {'userNameB': 'algo',
+    'userPassWordB': 'algo'}
 
-x = requests.post(url, json=myobj)
-andres = x.headers
-mysetCookie = andres['set-cookie']
+cookiesResponse = requests.post(getCookieUrl, json=myCredentials)
+responseHeaders = cookiesResponse.headers
+mysetCookie = responseHeaders['set-cookie']
 print(mysetCookie)
